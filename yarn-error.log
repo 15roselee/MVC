@@ -1,0 +1,36 @@
+Arguments: 
+  G:\websoftware\nodejs\node.exe G:\websoftware\yarn\bin\yarn.js init
+
+PATH: 
+  G:\websoftware\cmder\vendor\git-for-windows\mingw64\bin;G:\websoftware\cmder\vendor\git-for-windows\usr\bin;C:\Users\Administrator\bin;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Python310\Scripts;C:\Python310;C:\Program Files\PlasticSCM5\server;C:\Program Files\PlasticSCM5\client;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\WINDOWS\System32\OpenSSH;C:\Program Files (x86)\GtkSharp\2.12\bin;C:\Program Files\Common Files\Autodesk Shared;C:\Program Files (x86)\Autodesk\Backburner;C:\Program Files\Microsoft SQL Server\130\Tools\Binn;C:\ProgramData\chocolatey\bin;G:\websoftware\nodejs;G:\websoftware\yarn\bin;G:\bandizip;D:\Java\jdk1.8.0_201\bin;D:\Java\Maven\apache-maven-3.8.2\bin;D:\Java\Redis;D:\Java\zookeeper-3.7.0-bin\bin;D:\Java\zookeeper-3.7.0-bin\conf;C:\Program Files\MySQL\MySQL Server 5.7\bin;G:\websoftware\Microsoft VS Code\bin;C:\Users\Administrator\AppData\Roaming\npm;C:\Users\Administrator\AppData\Local\Yarn\bin
+
+Yarn version: 
+  1.22.5
+
+Node version: 
+  16.13.0
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: canceled
+      at Interface.<anonymous> (G:\websoftware\yarn\lib\cli.js:137009:13)
+      at Interface.emit (node:events:390:28)
+      at Interface._ttyWrite (node:readline:1081:16)
+      at ReadStream.onkeypress (node:readline:288:10)
+      at ReadStream.emit (node:events:390:28)
+      at emitKeys (node:internal/readline/utils:358:14)
+      at emitKeys.next (<anonymous>)
+      at ReadStream.onData (node:internal/readline/emitKeypressEvents:61:36)
+      at ReadStream.emit (node:events:390:28)
+      at addChunk (node:internal/streams/readable:315:12)
+
+npm manifest: 
+  No manifest
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
