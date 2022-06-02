@@ -1,4 +1,6 @@
 #app2 {
+  width: 50vw;
+  height: 50vh;
 }
 #app2 .tab-bar {
   display: flex;
