@@ -1,21 +1,59 @@
 import "./app2.css";
 
 import $ from "jquery";
-const $tapBar = $("#app2 .tab-bar");
-const $tabContent = $("#app2 .tab-content");
-console.log($tapBar);
-$tapBar.on("click", "li", (e) => {
-    const $li = $(e.currentTarget);
-    $li.addClass('selected').siblings().removeClass('selected')
-  console.log(e.currentTarget);
-  
-  const index = $li.index();
-  console.log(index);
-  $tabContent
-    .children()
-    .eq(index)
-    .addClass('active')
-    .siblings()
-    .removeClass('active')
+import Model from "./base/Model";
+import View from "./base/View";
+import EventBus from "./base/EventBus";
+
+const eventBus = new EventBus();
+const localKey = "app2.index";
+const m = new Model({
+  data: {
+    index: parseInt(localStorage.getItem(localKey)) || 0,
+  },
+  update(date) {
+    Object.assign(m.data, date);
+    eventBus.trigger("m:updated");
+    localStorage.setItem("app2.index", m.data.index);
+  },
 });
-$tapBar.children().eq(0).trigger('click')
+
+const init = (el) => {
+  new View({
+    el: el,
+    eventBus: eventBus,
+    data: m.data,
+    html: (index) => {
+      return `
+      <div>
+          <ol class="tab-bar">
+              <li class="${
+                index === 0 ? "selected" : " "
+              }"data-index='0'><span>1111</span></li>
+              <li class="${
+                index === 1 ? "selected" : " "
+              }"data-index='1'><span>2222</span> </li>
+          </ol>
+          <ol class="tab-content">
+              <li class="${index === 0 ? "active" : ""}">内容1</li>
+              <li class="${index === 1 ? "active" : ""}">内容2</li>
+          </ol>
+      </div>
+      `;
+    },
+
+    render(data) {
+      const index = data.index;
+      if (this.el.children.length !== 0) this.el.empty();
+      $(this.html(index)).appendTo(this.el);
+    },
+    events: {
+      "click .tab-bar li": "x",
+    },
+    x(e) {
+      const index = parseInt(e.currentTarget.dataset.index);
+      m.update({ index: index });
+    },
+  });
+};
+export default init;
